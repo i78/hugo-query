@@ -1,0 +1,16 @@
+language: go
+
+script:
+  go build -o hugo-query -i .
+
+go:
+  - 1.8
+  - master
+
+deploy:
+  provider: releases
+  api_key: "$GITHUB_API_KEY"
+  file: "hugo-query"
+  skip_cleanup: true
+  on:
+    tags: true
